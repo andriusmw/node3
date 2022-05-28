@@ -8,10 +8,19 @@ const app = express();
 
 /*********************** RUTAS ************** */
 
+
+//query.string
 app.get("/search", (req,res) => {
     console.log(req.query);
     res.end();
 });
+
+
+//params
+app.get("/users/:idUser", (req,res) => {
+    console.log(req.params)
+    res.end();
+})
 
 /********************** LEVANTANDO EL SERVIDOR ********** */
 app.listen(3000, () => {
