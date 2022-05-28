@@ -1,6 +1,7 @@
 # modulos
 	npm install chalk@4.1.2
 	npm install express-fileupload
+	npm install @hapi/joi
 
 
 # comandos para las peticiones al servidor
