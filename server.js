@@ -6,6 +6,8 @@ const res = require("express/lib/response");
 
 const app = express();
 const fileUpload = require("express-fileupload");
+const Joi = require("@hapi/joi");
+const { id } = require("@hapi/joi/lib/base");
 
 /***********************  MIDDLEWARES ******** */
 
@@ -33,7 +35,12 @@ app.get("/search", (req,res) => {
 
 //params
 app.get("/users/:idUser", (req,res) => {
-    console.log(req.params)
+    console.log(req.params);
+    const schemaUser = Joi.number().positive().integer()
+    const UserValidation = schemaUser.validate(req.params.idUser)
+    if(UserValidation.error) {
+        console.error(chalk.red(UserValidation.error.message));
+    }
     res.end();
 });
 
