@@ -72,5 +72,22 @@ if(validationDate.error) {
 /* -------------------------------------
     .min("aaaa-mm-dd") .max()  .timestamp()
                                 //solo admite fecha formato unix
-    
+
 ----------------------------------------*/
+
+/* ************** OBJETOS  **********************************************************************************/
+
+const schemaObject = Joi.object()
+
+const validationObject = schemaObject.validate("27")
+if(validationObject) {
+    console.error(validationObject)
+}
+
+/*-----------------------------------------
+   .object().keys({
+        nombre: Joi.string().min(4).max(20).required(),
+        email: Joi.string().email().required()
+    })
+
+------------------------------------------*/
