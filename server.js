@@ -41,7 +41,7 @@ app.get("/users/:idUser", (req,res) => {
 //body
 app.post("/users", (req,res) => {
     console.log(req.body);
-    console.log(req.files);
+    console.log(req.files);// sino hay files se puede comentar esta instrucción para evitar errores.
     res.end();
     //necesita el middleware
 });
