@@ -16,15 +16,61 @@ if(validation.error) {
     //Muestra el error si lo hay
 }*/
 
-/****************************VALIDACIONES ***************** */
+/******************************************************* VALIDACIONES ************************************************************* */
 
-const schema = Joi.string()
+/*********** STRINGS ************************************************************************************ */
+
+//const schema = Joi.string()
 //restriccion dato string
+const schemaString = Joi.string().min(4).max(20);
+//require string de entre 4 y 20 characters
 
+const validationString = schemaString.validate(null)
 
-const validation = schema.validate(null)
-
-if(validation.error) {
-    console.error(validation);
+if(validationString.error) {
+    console.error(validationString);
     //Muestra el error si lo hay
 }
+
+/*  Para strings-------------------------------
+.string()
+        .uri()  .email()  .creditCard()  .require()
+        .lowercase() .upppercase() .lenght()
+----------------------------------------------
+*/
+
+/* ************** NÚMEROS  **********************************************************************************/
+
+const schemaNumber = Joi.number()
+
+const validationNumber = schemaNumber.validate("421")
+
+if(validationNumber.error) {
+    console.error(validationNumber);
+    //Muestra el error si lo hay
+}
+/*
+-----------------------------------
+    .min()  .max()  .positive()  .negative()
+    .integer() .precision(2)
+                // precison 2 decimales 
+
+-----------------------------------
+
+*/
+
+/* ************** FECHAS  **********************************************************************************/
+
+const schemaDate = Joi.date()
+
+const validationDate = schemaDate.validate("12")
+
+if(validationDate.error) {
+    console.error(validationDate);
+}
+
+/* -------------------------------------
+    .min("aaaa-mm-dd") .max()  .timestamp()
+                                //solo admite fecha formato unix
+    
+----------------------------------------*/
